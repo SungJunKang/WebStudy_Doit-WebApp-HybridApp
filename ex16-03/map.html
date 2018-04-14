@@ -19,10 +19,10 @@
 
       // <현위치> 버튼 처리
       $("#current_location").click(function(){
-        $("#map_canvas").gmap("getCurrentPostion",
+        $("#map_canvas").gmap("getCurrentPosition",
         function(position, status){
-          if(status == "OK"){
-            var latlng = new google.maps.LatLng(position.coorde.latitude, position.coorde.longitude);
+          if(status === "OK"){
+            var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
             var markderBlue = "http://www.google.com/intl/en_us/mapfiles/ms/icons/blue-dot.png";
             $("#map_canvas").gmap("get", "map").panTo(latlng);
             $("#map_canvas").gmap("addMarker", {"position" : latlng, "icon" : markderBlue});
